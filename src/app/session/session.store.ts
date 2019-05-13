@@ -21,5 +21,3 @@ export class SessionStore extends Store<AppSession> {
     super(createInitialState());
   }
 }
-
-console.log('test change');
