@@ -108,5 +108,8 @@
       }
     }
   },
-  "defaultProject": "ngx-dkpace"
+  "defaultProject": "ngx-dkpace",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
