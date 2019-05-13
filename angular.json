@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-dkpace": {
+    "scoresplit-lite": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-dkpace",
+            "outputPath": "dist/scoresplit-lite",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-dkpace:build"
+            "browserTarget": "scoresplit-lite:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-dkpace:build:production"
+              "browserTarget": "scoresplit-lite:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-dkpace:build"
+            "browserTarget": "scoresplit-lite:build"
           }
         },
         "test": {
@@ -110,7 +110,7 @@
       }
     }
   },
-  "defaultProject": "ngx-dkpace",
+  "defaultProject": "scoresplit-lite",
   "cli": {
     "defaultCollection": "@datorama/akita"
   }
