@@ -7,8 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DatapointComponent implements OnInit {
   @Input() label: string;
-  @Input() numberValue: number;
-  @Input() stringValue: string;
+  @Input() averageOfNumbers: number[];
+  @Input() sumOfNumbers: number[];
+  @Input() directNumber: number;
+  @Input() directString: string;
 
   constructor() {}
 

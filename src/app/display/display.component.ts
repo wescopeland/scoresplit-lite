@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { SessionService } from '@session/session.service';
+import { SessionQuery, SessionService } from '@session/index';
+import { AppSession } from '@session/models/app-session.model';
 
 @Component({
   selector: 'ssl-display',
@@ -8,9 +10,16 @@ import { SessionService } from '@session/session.service';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  constructor(private _sessionService: SessionService) {}
+  public session$: Observable<AppSession>;
 
-  ngOnInit() {}
+  constructor(
+    private _sessionQuery: SessionQuery,
+    private _sessionService: SessionService
+  ) {}
+
+  ngOnInit() {
+    this.session$ = this._sessionQuery.select();
+  }
 
   handleSubmitScore(e: string): void {
     this._sessionService.handleUserInput(e);

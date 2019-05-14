@@ -6,4 +6,5 @@ export interface AppSession {
   levelScores: number[];
   nonStartLevelCount: number;
   shorthandMultiplier: number;
+  subtractionCache: number;
 }

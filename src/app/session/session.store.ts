@@ -11,7 +11,8 @@ export function createInitialState(): AppSession {
     deaths: [],
     levelScores: [],
     nonStartLevelCount: 17,
-    shorthandMultiplier: 1000
+    shorthandMultiplier: 1000,
+    subtractionCache: 0
   };
 }
 

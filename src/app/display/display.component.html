@@ -1,38 +1,40 @@
-<ssl-datapoint
-  label="Pace"
-  [numberValue]="1200000">
-</ssl-datapoint>
+<div *ngIf="session$ | async as session">
+  <ssl-datapoint
+    label="Pace"
+    [directNumber]="session.currentPace">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Goal"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Goal"
+    [directNumber]="1200000">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Previous Level"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Previous Level"
+    [directNumber]="1200000">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Level Average"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Level Average"
+    [directNumber]="1200000">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Start"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Start"
+    [directNumber]="session.currentStart">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Death Points"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Death Points"
+    [directNumber]="1200000">
+  </ssl-datapoint>
 
-<ssl-datapoint
-  label="Bonus Points"
-  [numberValue]="1200000">
-</ssl-datapoint>
+  <ssl-datapoint
+    label="Bonus Points"
+    [directNumber]="1200000">
+  </ssl-datapoint>
 
-<ssl-user-input 
-  (submitScore)="handleSubmitScore($event)">
-</ssl-user-input>
+  <ssl-user-input 
+    (submitScore)="handleSubmitScore($event)">
+  </ssl-user-input>
+</div>

@@ -14,5 +14,6 @@ export const allowedKeys = [
   'Enter',
   'MetaLeft',
   'MetaRight',
-  'Period'
+  'Period',
+  'Backspace'
 ];

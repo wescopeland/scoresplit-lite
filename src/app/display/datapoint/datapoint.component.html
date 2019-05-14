@@ -1,8 +1,9 @@
 <div class="ssl-datapoint">
   <div class="ssl-datapoint__viewport pl-3 pr-3 pt-3">
     <p class="ssl-datapoint__label mb-0">{{ label }}</p>
-    <p class="ssl-datapoint__value" *ngIf="numberValue">{{ numberValue | number }}</p>
-    <p class="ssl-datapoint__value" *ngIf="stringValue">{{ stringValue }}</p>
+    <p class="ssl-datapoint__value" *ngIf="directNumber">{{ directNumber | number }}</p>
+    <p class="ssl-datapoint__value" *ngIf="directString">{{ directString }}</p>
+    <p class="ssl-datapoint__value" *ngIf="!directNumber && !directString">&ndash;</p>
   </div>
 
   <mat-divider></mat-divider>
