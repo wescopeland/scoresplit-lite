@@ -88,6 +88,10 @@ export class SessionService {
     this.submitScore(Number(input));
   }
 
+  reset(): void {
+    this._store.reset();
+  }
+
   submitBonus(score: number): void {
     const currentBonuses = this._query.getValue().bonuses;
     this._store.update({

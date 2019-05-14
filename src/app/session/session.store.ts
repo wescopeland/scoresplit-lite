@@ -17,7 +17,7 @@ export function createInitialState(): AppSession {
 }
 
 @Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'session' })
+@StoreConfig({ name: 'session', resettable: true })
 export class SessionStore extends Store<AppSession> {
   constructor() {
     super(createInitialState());

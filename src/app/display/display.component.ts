@@ -21,6 +21,10 @@ export class DisplayComponent implements OnInit {
     this.session$ = this._sessionQuery.select();
   }
 
+  handleResetClick(): void {
+    this._sessionService.reset();
+  }
+
   handleSubmitScore(e: string): void {
     this._sessionService.handleUserInput(e);
   }
