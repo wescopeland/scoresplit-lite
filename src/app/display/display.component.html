@@ -5,18 +5,13 @@
   </ssl-datapoint>
 
   <ssl-datapoint
-    label="Goal"
-    [directNumber]="1200000">
-  </ssl-datapoint>
-
-  <ssl-datapoint
     label="Previous Level"
-    [directNumber]="1200000">
+    [mostRecentOfNumbers]="session.levelScores">
   </ssl-datapoint>
 
   <ssl-datapoint
     label="Level Average"
-    [directNumber]="1200000">
+    [averageOfNumbers]="session.levelScores">
   </ssl-datapoint>
 
   <ssl-datapoint
@@ -26,12 +21,12 @@
 
   <ssl-datapoint
     label="Death Points"
-    [directNumber]="1200000">
+    [sumOfNumbers]="session.deaths">
   </ssl-datapoint>
 
   <ssl-datapoint
     label="Bonus Points"
-    [directNumber]="1200000">
+    [sumOfNumbers]="session.bonuses">
   </ssl-datapoint>
 
   <ssl-user-input 

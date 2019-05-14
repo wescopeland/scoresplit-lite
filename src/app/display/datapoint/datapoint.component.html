@@ -2,8 +2,15 @@
   <div class="ssl-datapoint__viewport pl-3 pr-3 pt-3">
     <p class="ssl-datapoint__label mb-0">{{ label }}</p>
     <p class="ssl-datapoint__value" *ngIf="directNumber">{{ directNumber | number }}</p>
+    <p class="ssl-datapoint__value" *ngIf="renderSum">{{ renderSum | number }}</p>
+    <p class="ssl-datapoint__value" *ngIf="renderAverage">{{ renderAverage | number }}</p>
+    <p class="ssl-datapoint__value" *ngIf="renderMostRecent">{{ renderMostRecent | number }}</p>
     <p class="ssl-datapoint__value" *ngIf="directString">{{ directString }}</p>
-    <p class="ssl-datapoint__value" *ngIf="!directNumber && !directString">&ndash;</p>
+    <p 
+      *ngIf="!directNumber && !directString && !renderAverage && !renderMostRecent && !renderSum"
+      class="ssl-datapoint__value" >
+      &ndash;
+    </p>
   </div>
 
   <mat-divider></mat-divider>
