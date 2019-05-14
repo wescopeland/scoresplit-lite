@@ -36,7 +36,7 @@
   <div class="pl-3 pr-3 float-right">
     <button mat-flat-button>SHOW TUTORIAL</button>
     <button mat-flat-button>SETTINGS</button>
-    <button mat-flat-button>UNDO</button>
+    <button mat-flat-button (click)="handleUndoClick()">UNDO</button>
     <button mat-flat-button color="warn" (click)="handleResetClick()">RESET</button>
   </div>
 </div>

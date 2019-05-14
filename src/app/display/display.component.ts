@@ -28,4 +28,8 @@ export class DisplayComponent implements OnInit {
   handleSubmitScore(e: string): void {
     this._sessionService.handleUserInput(e);
   }
+
+  handleUndoClick(): void {
+    this._sessionService.undo();
+  }
 }

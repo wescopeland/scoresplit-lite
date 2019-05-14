@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { StateHistoryPlugin, transaction } from '@datorama/akita';
 import { mean, sum } from 'lodash';
 import { Observable } from 'rxjs';
 
@@ -8,14 +9,10 @@ import { SessionQuery } from './session.query';
 
 @Injectable({ providedIn: 'root' })
 export class SessionService {
-  constructor(private _store: SessionStore, private _query: SessionQuery) {
-    this._query.select('levelScores').subscribe(() => {
-      const state = this._query.getValue();
+  private _stateHistory: StateHistoryPlugin;
 
-      this._store.update({
-        currentPace: this.calculatePace(state)
-      });
-    });
+  constructor(private _store: SessionStore, private _query: SessionQuery) {
+    this._stateHistory = new StateHistoryPlugin(this._query);
   }
 
   private convertShorthand(score: number): number {
@@ -64,6 +61,7 @@ export class SessionService {
     return pace;
   }
 
+  @transaction()
   handleUserInput(input: string): void {
     // This must be a mistake.
     if (this.isBonus(input) && this.isDeath(input)) {
@@ -86,6 +84,11 @@ export class SessionService {
 
     // We'll arrive here if it's not a bonus or a death.
     this.submitScore(Number(input));
+
+    const state = this._query.getValue();
+    this._store.update({
+      currentPace: this.calculatePace(state)
+    });
   }
 
   reset(): void {
@@ -133,5 +136,10 @@ export class SessionService {
       this.clearSubtractionCache();
       this.addToSubtractionCache(this.convertShorthand(score));
     }
+  }
+
+  undo(): void {
+    console.log('go');
+    this._stateHistory.undo();
   }
 }
