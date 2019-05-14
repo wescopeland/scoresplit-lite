@@ -1,1 +1,9 @@
-<p>hello from datapoint component</p>
+<div class="ssl-datapoint">
+  <div class="ssl-datapoint__viewport pl-3 pr-3 pt-3">
+    <p class="ssl-datapoint__label mb-0">{{ label }}</p>
+    <p class="ssl-datapoint__value" *ngIf="numberValue">{{ numberValue | number }}</p>
+    <p class="ssl-datapoint__value" *ngIf="stringValue">{{ stringValue }}</p>
+  </div>
+
+  <mat-divider></mat-divider>
+</div>
