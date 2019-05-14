@@ -11,5 +11,8 @@ export const allowedKeys = [
   'Digit9',
   'KeyB',
   'KeyD',
-  'Enter'
+  'Enter',
+  'MetaLeft',
+  'MetaRight',
+  'Period'
 ];

@@ -1,8 +1,9 @@
 export interface AppSession {
-  currentNonStartLevel: number;
-  currentBonuses: number;
-  currentDeaths: number;
+  bonuses: number[];
   currentPace: number;
   currentStart: number;
+  deaths: number[];
+  levelScores: number[];
   nonStartLevelCount: number;
+  shorthandMultiplier: number;
 }

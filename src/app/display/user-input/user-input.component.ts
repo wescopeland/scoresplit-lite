@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { allowedKeys } from './allowed-keys.array';
 
@@ -8,7 +8,7 @@ import { allowedKeys } from './allowed-keys.array';
   styleUrls: ['./user-input.component.scss']
 })
 export class UserInputComponent implements OnInit {
-  @Output() submitScore = new EventEmitter<string>();
+  @Output() readonly submitScore = new EventEmitter<string>();
 
   public score: string;
 

@@ -5,12 +5,13 @@ import { AppSession } from './models/app-session.model';
 
 export function createInitialState(): AppSession {
   return {
-    currentNonStartLevel: null,
-    currentBonuses: null,
-    currentDeaths: null,
+    bonuses: [],
     currentPace: null,
     currentStart: null,
-    nonStartLevelCount: 17
+    deaths: [],
+    levelScores: [],
+    nonStartLevelCount: 17,
+    shorthandMultiplier: 1000
   };
 }
 
