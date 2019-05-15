@@ -1,3 +1,5 @@
+import { Settings } from './settings.model';
+
 export interface AppSession {
   bonuses: number[];
   currentPace: number;
@@ -5,6 +7,7 @@ export interface AppSession {
   deaths: number[];
   levelScores: number[];
   nonStartLevelCount: number;
+  settings: Settings;
   shorthandMultiplier: number;
   subtractionCache: number;
 }

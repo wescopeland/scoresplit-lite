@@ -1,33 +1,41 @@
 <div *ngIf="session$ | async as session" class="ssl-display">
-  <ssl-datapoint
-    label="Pace"
-    [directNumber]="session.currentPace">
-  </ssl-datapoint>
+  <div *ngFor="let widgetInstance of session.settings.layout.widgets">
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'PACE'"
+      label="{{ widgetInstance.labelOverride || 'Pace' }}"
+      [directNumber]="session.currentPace">
+    </ssl-datapoint>
 
-  <ssl-datapoint
-    label="Previous Level"
-    [mostRecentOfNumbers]="session.levelScores">
-  </ssl-datapoint>
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'PREVIOUS_LEVEL'"
+      label="{{ widgetInstance.labelOverride || 'Previous Level' }}"
+      [mostRecentOfNumbers]="session.levelScores">
+    </ssl-datapoint>
 
-  <ssl-datapoint
-    label="Level Average"
-    [averageOfNumbers]="session.levelScores">
-  </ssl-datapoint>
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'LEVEL_AVERAGE'"
+      label="{{ widgetInstance.labelOverride || 'Level Average' }}"
+      [averageOfNumbers]="session.levelScores">
+    </ssl-datapoint>
 
-  <ssl-datapoint
-    label="Start"
-    [directNumber]="session.currentStart">
-  </ssl-datapoint>
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'START'"
+      label="{{ widgetInstance.labelOverride || 'Start' }}"
+      [directNumber]="session.currentStart">
+    </ssl-datapoint>
 
-  <ssl-datapoint
-    label="Death Points"
-    [sumOfNumbers]="session.deaths">
-  </ssl-datapoint>
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'DEATH_POINTS'"
+      label="{{ widgetInstance.labelOverride || 'Death Points' }}"
+      [sumOfNumbers]="session.deaths">
+    </ssl-datapoint>
 
-  <ssl-datapoint
-    label="Bonus Points"
-    [sumOfNumbers]="session.bonuses">
-  </ssl-datapoint>
+    <ssl-datapoint
+      *ngIf="widgetInstance.widget === 'BONUS_POINTS'"
+      label="{{ widgetInstance.labelOverride || 'Bonus Points' }}"
+      [sumOfNumbers]="session.bonuses">
+    </ssl-datapoint>
+  </div>
 
   <ssl-user-input 
     (submitScore)="handleSubmitScore($event)">
