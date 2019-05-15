@@ -30,7 +30,11 @@ export class DisplayComponent implements OnInit {
   }
 
   handleSubmitScore(e: string): void {
-    this._sessionService.handleUserInput(e, 17);
+    this._sessionService.handleUserInput(
+      e,
+      this.settings.repeatingLevelCount,
+      this.settings.scoreDivisor
+    );
   }
 
   handleUndoClick(): void {

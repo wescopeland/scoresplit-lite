@@ -1,39 +1,40 @@
 <div class="ssl-display">
   <div *ngFor="let widgetInstance of settings?.layout?.widgets">
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'PACE'"
+      *ngIf="widgetInstance.widget === 'PACE' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Pace' }}"
       [directNumber]="session.currentPace">
     </ssl-datapoint>
 
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'PREVIOUS LEVEL'"
+      *ngIf="widgetInstance.widget === 'PREVIOUS LEVEL' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Previous Level' }}"
       [mostRecentOfNumbers]="session.levelScores"
       [isShowingNumberDifferentials]="settings.isShowingNumberDifferentials">
     </ssl-datapoint>
 
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'LEVEL AVERAGE'"
+      *ngIf="widgetInstance.widget === 'LEVEL AVERAGE' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Level Average' }}"
       [averageOfNumbers]="session.levelScores"
-      [isShowingNumberDifferentials]="settings.isShowingNumberDifferentials">
+      [isShowingNumberDifferentials]="settings.isShowingNumberDifferentials"
+      [scoreDivisor]="settings.scoreDivisor">
     </ssl-datapoint>
 
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'START'"
+      *ngIf="widgetInstance.widget === 'START' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Start' }}"
       [directNumber]="session.currentStart">
     </ssl-datapoint>
 
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'DEATH POINTS'"
+      *ngIf="widgetInstance.widget === 'DEATH POINTS' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Death Points' }}"
       [sumOfNumbers]="session.deaths">
     </ssl-datapoint>
 
     <ssl-datapoint
-      *ngIf="widgetInstance.widget === 'BONUS POINTS'"
+      *ngIf="widgetInstance.widget === 'BONUS POINTS' && widgetInstance.isVisible"
       label="{{ widgetInstance.labelOverride || 'Bonus Points' }}"
       [sumOfNumbers]="session.bonuses">
     </ssl-datapoint>

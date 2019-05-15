@@ -37,5 +37,6 @@ export const DonkeyKong: Settings = {
       }
     ]
   },
-  repeatingLevelCount: 17
+  repeatingLevelCount: 17,
+  scoreDivisor: 100
 };

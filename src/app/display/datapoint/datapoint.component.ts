@@ -24,6 +24,7 @@ export class DatapointComponent implements OnInit, OnChanges {
   @Input() isShowingNumberDifferentials: boolean;
   @Input() label: string;
   @Input() mostRecentOfNumbers: number[];
+  @Input() scoreDivisor: number;
   @Input() sumOfNumbers: number[];
 
   constructor() {}
@@ -35,12 +36,24 @@ export class DatapointComponent implements OnInit, OnChanges {
       this.differential =
         e.directNumber.currentValue - e.directNumber.previousValue;
     } else if (this.averageOfNumbers) {
-      if (e.renderAverage && !e.renderAverage.firstChange) {
-        this.differential =
-          e.renderAverage.currentValue - e.renderAverage.previousValue;
+      console.log(e);
+      if (e.averageOfNumbers && !e.averageOfNumbers.firstChange) {
+        const previousAverage =
+          Math.round(
+            mean(e.averageOfNumbers.previousValue) / this.scoreDivisor
+          ) * this.scoreDivisor;
+
+        const currentAverage =
+          Math.round(
+            mean(e.averageOfNumbers.currentValue) / this.scoreDivisor
+          ) * this.scoreDivisor;
+
+        this.differential = currentAverage - previousAverage;
       }
 
-      this.renderAverage = mean(this.averageOfNumbers);
+      this.renderAverage =
+        Math.round(mean(this.averageOfNumbers) / this.scoreDivisor) *
+        this.scoreDivisor;
     } else if (this.mostRecentOfNumbers) {
       if (e.mostRecentOfNumbers && !e.mostRecentOfNumbers.firstChange) {
         this.differential =

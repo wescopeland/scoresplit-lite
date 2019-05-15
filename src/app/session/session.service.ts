@@ -41,7 +41,11 @@ export class SessionService {
     this._store.update({ subtractionCache: 0 });
   }
 
-  calculatePace(currentState: AppSession, repeatingLevelCount: number): number {
+  calculatePace(
+    currentState: AppSession,
+    repeatingLevelCount: number,
+    divisor: number
+  ): number {
     if (!currentState.currentStart || !currentState.levelScores.length) {
       return null;
     }
@@ -49,6 +53,7 @@ export class SessionService {
     const levelAverage = mean(currentState.levelScores);
     let pace = currentState.currentStart + levelAverage * repeatingLevelCount;
 
+    pace = Math.round(pace / divisor) * divisor;
     pace += sum(currentState.bonuses);
     pace += sum(currentState.deaths);
 
@@ -56,7 +61,11 @@ export class SessionService {
   }
 
   @transaction()
-  handleUserInput(input: string, repeatingLevelCount: number): void {
+  handleUserInput(
+    input: string,
+    repeatingLevelCount: number,
+    divisor: number
+  ): void {
     // This must be a mistake.
     if (this.isBonus(input) && this.isDeath(input)) {
       return;
@@ -81,7 +90,7 @@ export class SessionService {
 
     const state = this._query.getValue();
     this._store.update({
-      currentPace: this.calculatePace(state, repeatingLevelCount)
+      currentPace: this.calculatePace(state, repeatingLevelCount, divisor)
     });
   }
 

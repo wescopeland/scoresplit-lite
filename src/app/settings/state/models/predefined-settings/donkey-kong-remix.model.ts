@@ -37,5 +37,6 @@ export const DonkeyKongRemix: Settings = {
       }
     ]
   },
-  repeatingLevelCount: 17
+  repeatingLevelCount: 17,
+  scoreDivisor: 100
 };
