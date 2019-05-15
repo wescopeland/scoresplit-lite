@@ -110,13 +110,10 @@ export class SessionService {
     const subtractionCache = this._query.getValue().subtractionCache;
 
     this._store.update({
-      deaths: [
-        ...currentDeaths,
-        this.convertShorthand(score) - subtractionCache
-      ]
+      deaths: [...currentDeaths, this.convertShorthand(score)]
     });
 
-    this.addToSubtractionCache(this.convertShorthand(score) - subtractionCache);
+    this.addToSubtractionCache(this.convertShorthand(score));
   }
 
   submitScore(score: number): void {
