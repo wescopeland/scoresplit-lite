@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { StateHistoryPlugin, transaction } from '@datorama/akita';
 import { mean, sum } from 'lodash';
-import { Observable } from 'rxjs';
 
 import { AppSession } from './models/app-session.model';
-import { Settings } from './models/settings.model';
 import { SessionStore } from './session.store';
 import { SessionQuery } from './session.query';
 
@@ -43,27 +41,22 @@ export class SessionService {
     this._store.update({ subtractionCache: 0 });
   }
 
-  calculatePace(currentState: AppSession): number {
+  calculatePace(currentState: AppSession, repeatingLevelCount: number): number {
     if (!currentState.currentStart || !currentState.levelScores.length) {
       return null;
     }
 
     const levelAverage = mean(currentState.levelScores);
-    console.log('levelAverage', levelAverage);
-
-    let pace =
-      currentState.currentStart +
-      levelAverage * currentState.settings.repeatingLevelCount;
+    let pace = currentState.currentStart + levelAverage * repeatingLevelCount;
 
     pace += sum(currentState.bonuses);
     pace += sum(currentState.deaths);
 
-    console.log('pace', pace);
     return pace;
   }
 
   @transaction()
-  handleUserInput(input: string): void {
+  handleUserInput(input: string, repeatingLevelCount: number): void {
     // This must be a mistake.
     if (this.isBonus(input) && this.isDeath(input)) {
       return;
@@ -88,16 +81,12 @@ export class SessionService {
 
     const state = this._query.getValue();
     this._store.update({
-      currentPace: this.calculatePace(state)
+      currentPace: this.calculatePace(state, repeatingLevelCount)
     });
   }
 
   reset(): void {
     this._store.reset();
-  }
-
-  saveSettings(settings: Settings): void {
-    this._store.update({ settings });
   }
 
   submitBonus(score: number): void {

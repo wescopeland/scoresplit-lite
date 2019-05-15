@@ -5,11 +5,12 @@ import { SortablejsModule } from 'angular-sortablejs';
 
 import { SharedModule } from '@shared/shared.module';
 import { SettingsComponent } from './settings.component';
+import { SettingsStore, SettingsQuery, SettingsService } from './state';
 
 @NgModule({
   imports: [CommonModule, FormsModule, SortablejsModule, SharedModule],
   declarations: [SettingsComponent],
-  providers: [],
+  providers: [SettingsStore, SettingsQuery, SettingsService],
   exports: [SettingsComponent]
 })
 export class SettingsModule {}

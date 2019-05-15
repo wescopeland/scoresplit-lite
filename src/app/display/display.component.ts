@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { SessionQuery, SessionService } from '@session/index';
 import { AppSession } from '@session/models/app-session.model';
+import { Settings } from '../settings/state/models/settings.model';
 
 @Component({
   selector: 'ssl-display',
@@ -11,6 +11,7 @@ import { AppSession } from '@session/models/app-session.model';
 })
 export class DisplayComponent implements OnInit {
   @Input() session: AppSession;
+  @Input() settings: Settings;
   @Output() readonly openSettings = new EventEmitter<void>();
 
   constructor(
@@ -29,7 +30,7 @@ export class DisplayComponent implements OnInit {
   }
 
   handleSubmitScore(e: string): void {
-    this._sessionService.handleUserInput(e);
+    this._sessionService.handleUserInput(e, 17);
   }
 
   handleUndoClick(): void {

@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export const materialDependencies = [
   MatButtonModule,
@@ -15,5 +16,6 @@ export const materialDependencies = [
   MatInputModule,
   MatListModule,
   MatSelectModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatSlideToggleModule
 ];

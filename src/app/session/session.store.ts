@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 import { AppSession } from './models/app-session.model';
-import { LayoutWidget } from './models/layout-widget.enum';
-import { DonkeyKong } from './models/predefined-settings/donkey-kong.model';
 
 export function createInitialState(): AppSession {
   return {
@@ -12,7 +10,6 @@ export function createInitialState(): AppSession {
     currentStart: null,
     deaths: [],
     levelScores: [],
-    settings: DonkeyKong,
     shorthandMultiplier: 1000,
     subtractionCache: 0
   };

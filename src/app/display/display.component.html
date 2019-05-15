@@ -1,5 +1,5 @@
 <div class="ssl-display">
-  <div *ngFor="let widgetInstance of session.settings.layout.widgets">
+  <div *ngFor="let widgetInstance of settings?.layout?.widgets">
     <ssl-datapoint
       *ngIf="widgetInstance.widget === 'PACE'"
       label="{{ widgetInstance.labelOverride || 'Pace' }}"
@@ -10,14 +10,14 @@
       *ngIf="widgetInstance.widget === 'PREVIOUS LEVEL'"
       label="{{ widgetInstance.labelOverride || 'Previous Level' }}"
       [mostRecentOfNumbers]="session.levelScores"
-      [isShowingNumberDifferentials]="session.settings.isShowingNumberDifferentials">
+      [isShowingNumberDifferentials]="settings.isShowingNumberDifferentials">
     </ssl-datapoint>
 
     <ssl-datapoint
       *ngIf="widgetInstance.widget === 'LEVEL AVERAGE'"
       label="{{ widgetInstance.labelOverride || 'Level Average' }}"
       [averageOfNumbers]="session.levelScores"
-      [isShowingNumberDifferentials]="session.settings.isShowingNumberDifferentials">
+      [isShowingNumberDifferentials]="settings.isShowingNumberDifferentials">
     </ssl-datapoint>
 
     <ssl-datapoint

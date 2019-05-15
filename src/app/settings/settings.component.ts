@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatSelectChange } from '@angular/material';
 
-import { Settings } from '@session/models/settings.model';
-import { WidgetInstance } from '@session/models/widget-instance.model';
+import { Settings } from './state/models/settings.model';
+import { WidgetInstance } from './state/models/widget-instance.model';
 import {
   DonkeyKong,
   DonkeyKongJr,
   DonkeyKongRemix
-} from '@session/models/predefined-settings';
+} from './state/models/predefined-settings';
 
 @Component({
   selector: 'ssl-settings',

@@ -12,6 +12,7 @@
         <mat-sidenav-content>
           <ssl-display 
             [session]="session" 
+            [settings]="settings$ | async"
             (openSettings)="handleOpenSettings()">
           </ssl-display>
         </mat-sidenav-content>
