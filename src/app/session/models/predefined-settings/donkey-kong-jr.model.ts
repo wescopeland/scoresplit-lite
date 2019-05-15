@@ -2,6 +2,7 @@ import { Settings } from '../settings.model';
 import { LayoutWidget } from '../layout-widget.enum';
 
 export const DonkeyKongJr: Settings = {
+  isShowingNumberDifferentials: true,
   layout: {
     widgets: [
       {

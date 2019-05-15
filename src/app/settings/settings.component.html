@@ -41,7 +41,7 @@
         </p>
 
         <p class="ssl-settings__description">
-          You can drag and drop widgets in the list to re-order them.
+          Drag and drop widgets in the list to re-order them.
           Clicking the <mat-icon>visibility</mat-icon> icon will turn widgets on and
           off in your layout. Labels can be customized by putting your own text in
           a widget's custom label field.
@@ -57,7 +57,7 @@
           <div [sortablejs]="clonedSessionSettings.layout.widgets">
             <div *ngFor="let widgetInstance of clonedSessionSettings.layout.widgets; let last = last;">
               <mat-list-item>
-                <div class="col-sm-6">
+                <div class="col-sm-6 pl-0">
                   <button mat-icon-button class="mr-2" (click)="handleVisibilityClick(widgetInstance)">
                     <mat-icon *ngIf="widgetInstance.isVisible">visibility</mat-icon>
                     <mat-icon *ngIf="!widgetInstance.isVisible">visibility_off</mat-icon>

@@ -4,7 +4,14 @@
       font-weight: 500;
     }
 
-    .ssl-datapoint__value {
+    .ssl-datapoint__differential {
+      &.ssl-datapoint__differential--positive {
+        color: #00e676;
+      }
+
+      &.ssl-datapoint__differential--negative {
+        color: #ff1744;
+      }
     }
   }
 }
