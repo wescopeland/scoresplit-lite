@@ -1,8 +1,8 @@
-import { LayoutWidget } from './layout-widget.enum';
+import { WidgetInstance } from './widget-instance.model';
 
 export interface Settings {
   layout: {
-    widgets: Array<{ widget: LayoutWidget; labelOverride?: string }>;
+    widgets: WidgetInstance[];
   };
   goal?: number;
 }

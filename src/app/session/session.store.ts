@@ -16,22 +16,28 @@ export function createInitialState(): AppSession {
       layout: {
         widgets: [
           {
-            widget: LayoutWidget.Pace
+            widget: LayoutWidget.Pace,
+            isVisible: true
           },
           {
-            widget: LayoutWidget.PreviousLevel
+            widget: LayoutWidget.PreviousLevel,
+            isVisible: true
           },
           {
-            widget: LayoutWidget.LevelAverage
+            widget: LayoutWidget.LevelAverage,
+            isVisible: true
           },
           {
-            widget: LayoutWidget.Start
+            widget: LayoutWidget.Start,
+            isVisible: true
           },
           {
-            widget: LayoutWidget.DeathPoints
+            widget: LayoutWidget.DeathPoints,
+            isVisible: true
           },
           {
-            widget: LayoutWidget.BonusPoints
+            widget: LayoutWidget.BonusPoints,
+            isVisible: true
           }
         ]
       }

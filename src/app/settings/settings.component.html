@@ -1,1 +1,44 @@
-<p>hello from settings component</p>
+<div class="ssl-settings">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <p class="ssl-settings__header">
+          Widgets
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-list 
+          *ngIf="clonedSession" 
+          class="ssl-settings__widgets-list mat-elevation-z2" 
+          role="list">
+          <div [sortablejs]="clonedSession.settings.layout.widgets">
+            <div *ngFor="let widgetInstance of clonedSession.settings.layout.widgets; let last = last;">
+              <mat-list-item>
+                <button mat-icon-button class="mr-2" (click)="handleVisibilityClick(widgetInstance)">
+                  <mat-icon *ngIf="widgetInstance.isVisible">visibility</mat-icon>
+                  <mat-icon *ngIf="!widgetInstance.isVisible">visibility_off</mat-icon>
+                </button>
+                {{ widgetInstance.widget | titlecase }}
+              </mat-list-item>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </div>
+          </div>
+        </mat-list>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <div class="float-right">
+          <button mat-flat-button (click)="handleCancelClick()">CANCEL</button>
+          <button mat-flat-button color="primary" (click)="handleSaveClick()">
+            SAVE CHANGES AND CLOSE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,8 @@
       <mat-sidenav-container *ngIf="session$ | async as session">
         <mat-sidenav #sidenav>
           <ssl-settings 
-            [session]="session">
+            [clonedSession]="clonedSession"
+            (cancel)="handleToggleSettings()">
           </ssl-settings>
         </mat-sidenav>
         <mat-sidenav-content>

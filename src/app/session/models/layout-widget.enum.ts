@@ -1,8 +1,8 @@
 export enum LayoutWidget {
   Pace = 'PACE',
-  PreviousLevel = 'PREVIOUS_LEVEL',
-  LevelAverage = 'LEVEL_AVERAGE',
+  PreviousLevel = 'PREVIOUS LEVEL',
+  LevelAverage = 'LEVEL AVERAGE',
   Start = 'START',
-  DeathPoints = 'DEATH_POINTS',
-  BonusPoints = 'BONUS_POINTS'
+  DeathPoints = 'DEATH POINTS',
+  BonusPoints = 'BONUS POINTS'
 }

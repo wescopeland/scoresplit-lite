@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { SortablejsModule } from 'angular-sortablejs';
 
 import { SharedModule } from '@shared/shared.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { SettingsModule } from './settings/settings.module';
     BrowserModule,
     BrowserAnimationsModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
+    SortablejsModule.forRoot({ animation: 150 }),
     SharedModule,
     DisplayModule,
     SettingsModule
