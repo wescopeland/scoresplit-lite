@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { AppSession } from '@session/models/app-session.model';
 
 @Component({
   selector: 'ssl-settings',
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  @Input() session: AppSession;
+
   constructor() {}
 
   ngOnInit() {}
 }
-
-//

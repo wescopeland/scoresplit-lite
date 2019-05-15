@@ -10,3 +10,11 @@
 @import 'reset';
 
 @import 'scoresplit-lite-theme';
+
+.mat-sidenav-container {
+  height: 100vh;
+
+  .mat-sidenav {
+    width: 100%;
+  }
+}

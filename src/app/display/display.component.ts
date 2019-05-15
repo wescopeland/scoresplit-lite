@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { SessionQuery, SessionService } from '@session/index';
@@ -10,19 +10,22 @@ import { AppSession } from '@session/models/app-session.model';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent implements OnInit {
-  public session$: Observable<AppSession>;
+  @Input() session: AppSession;
+  @Output() readonly toggleSettings = new EventEmitter<void>();
 
   constructor(
     private _sessionQuery: SessionQuery,
     private _sessionService: SessionService
   ) {}
 
-  ngOnInit() {
-    this.session$ = this._sessionQuery.select();
-  }
+  ngOnInit() {}
 
   handleResetClick(): void {
     this._sessionService.reset();
+  }
+
+  handleSettingsClick(): void {
+    this.toggleSettings.emit();
   }
 
   handleSubmitScore(e: string): void {

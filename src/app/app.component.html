@@ -1,7 +1,19 @@
 <div class="dark-theme">
   <div class="mat-app-background">
     <div class="container-fluid pl-0 pr-0">
-      <ssl-display></ssl-display>
+      <mat-sidenav-container *ngIf="session$ | async as session">
+        <mat-sidenav #sidenav>
+          <ssl-settings 
+            [session]="session">
+          </ssl-settings>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <ssl-display 
+            [session]="session" 
+            (toggleSettings)="handleToggleSettings()">
+          </ssl-display>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
     </div>
   </div>
 </div>
