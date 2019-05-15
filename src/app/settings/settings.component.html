@@ -5,17 +5,23 @@
         <p class="ssl-settings__header">
           Widgets
         </p>
+
+        <p class="ssl-settings__description">
+          You can drag and drop widgets in the list to re-order them.
+          Clicking the <mat-icon>visibility</mat-icon> icon will turn widgets on and
+          off in your layout.
+        </p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12">
         <mat-list 
-          *ngIf="clonedSession" 
+          *ngIf="clonedSessionSettings" 
           class="ssl-settings__widgets-list mat-elevation-z2" 
           role="list">
-          <div [sortablejs]="clonedSession.settings.layout.widgets">
-            <div *ngFor="let widgetInstance of clonedSession.settings.layout.widgets; let last = last;">
+          <div [sortablejs]="clonedSessionSettings.layout.widgets">
+            <div *ngFor="let widgetInstance of clonedSessionSettings.layout.widgets; let last = last;">
               <mat-list-item>
                 <button mat-icon-button class="mr-2" (click)="handleVisibilityClick(widgetInstance)">
                   <mat-icon *ngIf="widgetInstance.isVisible">visibility</mat-icon>

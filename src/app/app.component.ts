@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { cloneDeep } from 'lodash';
 
 import { AppSession } from './session/models/app-session.model';
+import { Settings } from './session/models/settings.model';
 import { SessionQuery } from './session/session.query';
+import { SessionService } from './session/session.service';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +16,32 @@ import { SessionQuery } from './session/session.query';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
 
-  public clonedSession: AppSession;
+  public clonedSessionSettings: Settings;
   public session$: Observable<AppSession>;
 
-  constructor(private _sessionQuery: SessionQuery) {}
+  constructor(
+    private _sessionQuery: SessionQuery,
+    private _sessionService: SessionService
+  ) {}
 
   ngOnInit() {
     this.session$ = this._sessionQuery.select();
   }
 
-  handleToggleSettings() {
-    this.clonedSession = cloneDeep(this._sessionQuery.getValue());
+  handleCancelSettings(): void {
+    this.sidenav.close();
+  }
+
+  handleOpenSettings() {
+    this.clonedSessionSettings = cloneDeep(
+      this._sessionQuery.getValue().settings
+    );
+
+    this.sidenav.toggle();
+  }
+
+  handleSettingsSave(newSettings: Settings): void {
+    this._sessionService.saveSettings(newSettings);
     this.sidenav.toggle();
   }
 }

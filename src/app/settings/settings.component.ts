@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { AppSession } from '@session/models/app-session.model';
+import { Settings } from '@session/models/settings.model';
 import { WidgetInstance } from '@session/models/widget-instance.model';
 
 @Component({
@@ -9,9 +9,9 @@ import { WidgetInstance } from '@session/models/widget-instance.model';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  @Input() clonedSession: AppSession;
+  @Input() clonedSessionSettings: Settings;
   @Output() cancel = new EventEmitter<void>();
-  @Output() save = new EventEmitter<AppSession>();
+  @Output() save = new EventEmitter<Settings>();
 
   constructor() {}
 
@@ -21,7 +21,9 @@ export class SettingsComponent implements OnInit {
     this.cancel.emit();
   }
 
-  handleSaveClick(): void {}
+  handleSaveClick(): void {
+    this.save.emit(this.clonedSessionSettings);
+  }
 
   handleVisibilityClick(widget: WidgetInstance): void {
     widget.isVisible = !widget.isVisible;

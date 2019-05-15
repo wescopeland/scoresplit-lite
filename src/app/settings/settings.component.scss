@@ -2,7 +2,15 @@
   .ssl-settings__header {
     font-size: 18px;
     font-weight: 500px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+  }
+
+  .ssl-settings__description {
+    .mat-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+    }
   }
 
   .ssl-settings__widgets-list {

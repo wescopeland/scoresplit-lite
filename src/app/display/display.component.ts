@@ -11,7 +11,7 @@ import { AppSession } from '@session/models/app-session.model';
 })
 export class DisplayComponent implements OnInit {
   @Input() session: AppSession;
-  @Output() readonly toggleSettings = new EventEmitter<void>();
+  @Output() readonly openSettings = new EventEmitter<void>();
 
   constructor(
     private _sessionQuery: SessionQuery,
@@ -25,7 +25,7 @@ export class DisplayComponent implements OnInit {
   }
 
   handleSettingsClick(): void {
-    this.toggleSettings.emit();
+    this.openSettings.emit();
   }
 
   handleSubmitScore(e: string): void {

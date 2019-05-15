@@ -4,6 +4,7 @@ import { mean, sum } from 'lodash';
 import { Observable } from 'rxjs';
 
 import { AppSession } from './models/app-session.model';
+import { Settings } from './models/settings.model';
 import { SessionStore } from './session.store';
 import { SessionQuery } from './session.query';
 
@@ -93,6 +94,10 @@ export class SessionService {
 
   reset(): void {
     this._store.reset();
+  }
+
+  saveSettings(settings: Settings): void {
+    this._store.update({ settings });
   }
 
   submitBonus(score: number): void {
