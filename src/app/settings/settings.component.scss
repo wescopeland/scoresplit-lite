@@ -1,4 +1,12 @@
 .ssl-settings {
+  .mat-list-base .mat-list-item {
+    height: 64px;
+
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
   .ssl-settings__header {
     font-size: 18px;
     font-weight: 500px;

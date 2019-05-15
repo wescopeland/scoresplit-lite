@@ -17,27 +17,33 @@ export function createInitialState(): AppSession {
         widgets: [
           {
             widget: LayoutWidget.Pace,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           },
           {
             widget: LayoutWidget.PreviousLevel,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           },
           {
             widget: LayoutWidget.LevelAverage,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           },
           {
             widget: LayoutWidget.Start,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           },
           {
             widget: LayoutWidget.DeathPoints,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           },
           {
             widget: LayoutWidget.BonusPoints,
-            isVisible: true
+            isVisible: true,
+            labelOverride: null
           }
         ]
       }

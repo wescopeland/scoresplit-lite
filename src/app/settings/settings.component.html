@@ -23,11 +23,22 @@
           <div [sortablejs]="clonedSessionSettings.layout.widgets">
             <div *ngFor="let widgetInstance of clonedSessionSettings.layout.widgets; let last = last;">
               <mat-list-item>
-                <button mat-icon-button class="mr-2" (click)="handleVisibilityClick(widgetInstance)">
-                  <mat-icon *ngIf="widgetInstance.isVisible">visibility</mat-icon>
-                  <mat-icon *ngIf="!widgetInstance.isVisible">visibility_off</mat-icon>
-                </button>
-                {{ widgetInstance.widget | titlecase }}
+                <div class="col-sm-6">
+                  <button mat-icon-button class="mr-2" (click)="handleVisibilityClick(widgetInstance)">
+                    <mat-icon *ngIf="widgetInstance.isVisible">visibility</mat-icon>
+                    <mat-icon *ngIf="!widgetInstance.isVisible">visibility_off</mat-icon>
+                  </button>
+                  {{ widgetInstance.widget | titlecase }}
+                </div>
+                <div class="col-sm-6">
+                  <mat-form-field appearance="standard">
+                    <mat-label>Custom label</mat-label>
+                    <input
+                      matInput
+                      placeholder="Enter a custom label"
+                      [(ngModel)]="widgetInstance.labelOverride">
+                  </mat-form-field>
+                </div>
               </mat-list-item>
               <mat-divider *ngIf="!last"></mat-divider>
             </div>
