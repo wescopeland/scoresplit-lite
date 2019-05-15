@@ -4,5 +4,6 @@ export interface Settings {
   layout: {
     widgets: WidgetInstance[];
   };
+  repeatingLevelCount: number;
   goal?: number;
 }

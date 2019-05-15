@@ -1,7 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { MatSelectChange } from '@angular/material';
 
 import { Settings } from '@session/models/settings.model';
 import { WidgetInstance } from '@session/models/widget-instance.model';
+import {
+  DonkeyKong,
+  DonkeyKongJr,
+  DonkeyKongRemix
+} from '@session/models/predefined-settings';
 
 @Component({
   selector: 'ssl-settings',
@@ -19,6 +25,16 @@ export class SettingsComponent implements OnInit {
 
   handleCancelClick(): void {
     this.cancel.emit();
+  }
+
+  handleChoosePredefinedLayout(e: MatSelectChange): void {
+    if (e.value === 'donkeyKong' || e.value === 'crazyKong') {
+      this.clonedSessionSettings = DonkeyKong;
+    } else if (e.value === 'donkeyKongJr') {
+      this.clonedSessionSettings = DonkeyKongJr;
+    } else if (e.value === 'donkeyKongRemix') {
+      this.clonedSessionSettings = DonkeyKongRemix;
+    }
   }
 
   handleSaveClick(): void {

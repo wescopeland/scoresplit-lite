@@ -53,7 +53,7 @@ export class SessionService {
 
     let pace =
       currentState.currentStart +
-      levelAverage * currentState.nonStartLevelCount;
+      levelAverage * currentState.settings.repeatingLevelCount;
 
     pace += sum(currentState.bonuses);
     pace += sum(currentState.deaths);

@@ -6,7 +6,6 @@ export interface AppSession {
   currentStart: number;
   deaths: number[];
   levelScores: number[];
-  nonStartLevelCount: number;
   settings: Settings;
   shorthandMultiplier: number;
   subtractionCache: number;

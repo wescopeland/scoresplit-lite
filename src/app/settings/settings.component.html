@@ -1,5 +1,39 @@
-<div class="ssl-settings">
+<div *ngIf="clonedSessionSettings" class="ssl-settings">
   <div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-12">
+        <p class="ssl-settings__header">
+          Predefined Layouts
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a predefined layout</mat-label>
+          <mat-select (selectionChange)="handleChoosePredefinedLayout($event)">
+            <mat-option value="crazyKong">Crazy Kong</mat-option>
+            <mat-option value="donkeyKong">Donkey Kong</mat-option>
+            <mat-option value="donkeyKongJr">Donkey Kong Jr.</mat-option>
+            <mat-option value="donkeyKongRemix">Donkey Kong Remix</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <mat-form-field appearance="standard">
+          <mat-label>Number of identical repeating levels</mat-label>
+          <input
+            matInput
+            placeholder="Enter the number of identical repeating levels"
+            [(ngModel)]="clonedSessionSettings.repeatingLevelCount">
+        </mat-form-field>
+      </div>
+    </div>
+
     <div class="row mt-3">
       <div class="col-sm-12">
         <p class="ssl-settings__header">
@@ -9,7 +43,8 @@
         <p class="ssl-settings__description">
           You can drag and drop widgets in the list to re-order them.
           Clicking the <mat-icon>visibility</mat-icon> icon will turn widgets on and
-          off in your layout.
+          off in your layout. Labels can be customized by putting your own text in
+          a widget's custom label field.
         </p>
       </div>
     </div>
@@ -17,7 +52,6 @@
     <div class="row">
       <div class="col-sm-12">
         <mat-list 
-          *ngIf="clonedSessionSettings" 
           class="ssl-settings__widgets-list mat-elevation-z2" 
           role="list">
           <div [sortablejs]="clonedSessionSettings.layout.widgets">
