@@ -10,8 +10,9 @@ export function createInitialState(): AppSession {
     currentStart: null,
     deaths: [],
     levelScores: [],
+    paces: [],
     shorthandMultiplier: 1000,
-    subtractionCache: 0
+    subtractionCache: 0,
   };
 }
 

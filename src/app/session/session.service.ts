@@ -89,19 +89,37 @@ export class SessionService {
     this.submitScore(Number(input));
 
     const state = this._query.getValue();
+
+    const newPaces = [...state.paces];
+    const newPace = this.calculatePace(state, repeatingLevelCount, divisor);
+
+    if (newPace) {
+      newPaces.push(newPace);
+    }
+
     this._store.update({
-      currentPace: this.calculatePace(state, repeatingLevelCount, divisor)
+      currentPace: newPace,
+      paces: newPaces,
     });
   }
 
+  printPaces(): void {
+    const { paces } = this._query.getValue();
+
+    if (paces.length >= 4) {
+      console.table(paces);
+    }
+  }
+
   reset(): void {
+    this.printPaces();
     this._store.reset();
   }
 
   submitBonus(score: number): void {
     const currentBonuses = this._query.getValue().bonuses;
     this._store.update({
-      bonuses: [...currentBonuses, this.convertShorthand(score)]
+      bonuses: [...currentBonuses, this.convertShorthand(score)],
     });
   }
 
@@ -110,7 +128,7 @@ export class SessionService {
     const subtractionCache = this._query.getValue().subtractionCache;
 
     this._store.update({
-      deaths: [...currentDeaths, this.convertShorthand(score)]
+      deaths: [...currentDeaths, this.convertShorthand(score)],
     });
 
     this.addToSubtractionCache(this.convertShorthand(score));
@@ -130,7 +148,7 @@ export class SessionService {
         this.convertShorthand(score) - currentState.subtractionCache;
 
       this._store.update({
-        levelScores: [...currentState.levelScores, realScore]
+        levelScores: [...currentState.levelScores, realScore],
       });
 
       this.clearSubtractionCache();
@@ -139,7 +157,6 @@ export class SessionService {
   }
 
   undo(): void {
-    console.log('go');
     this._stateHistory.undo();
   }
 }

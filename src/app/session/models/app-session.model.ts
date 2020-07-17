@@ -4,6 +4,7 @@ export interface AppSession {
   currentStart: number;
   deaths: number[];
   levelScores: number[];
+  paces: number[];
   shorthandMultiplier: number;
   subtractionCache: number;
 }

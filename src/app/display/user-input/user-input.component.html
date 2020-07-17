@@ -3,7 +3,7 @@
     <mat-label>Score</mat-label>
     <input 
       matInput 
-      placeholder="Input a score and press enter"
+      placeholder="Input a score and press enter. ex: 104.3 means you finished a level with 104,300 points. 6d means you had a 6,000 point death."
       [(ngModel)]="score"
       (keydown)="handleKeydown($event)"
       (keyup)="handleKeyup($event)">

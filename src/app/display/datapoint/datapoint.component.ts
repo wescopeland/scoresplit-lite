@@ -3,14 +3,14 @@ import {
   Input,
   SimpleChanges,
   OnInit,
-  OnChanges
+  OnChanges,
 } from '@angular/core';
 import { mean, sum } from 'lodash';
 
 @Component({
   selector: 'ssl-datapoint',
   templateUrl: './datapoint.component.html',
-  styleUrls: ['./datapoint.component.scss']
+  styleUrls: ['./datapoint.component.scss'],
 })
 export class DatapointComponent implements OnInit, OnChanges {
   public differential: number;
@@ -36,7 +36,6 @@ export class DatapointComponent implements OnInit, OnChanges {
       this.differential =
         e.directNumber.currentValue - e.directNumber.previousValue;
     } else if (this.averageOfNumbers) {
-      console.log(e);
       if (e.averageOfNumbers && !e.averageOfNumbers.firstChange) {
         const previousAverage =
           Math.round(
